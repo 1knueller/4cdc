@@ -1,7 +1,7 @@
-Python 4chan thread files downloader
+4cdc - 4 Chan Download Content
 ---------------------------------------
 
-Downloads files (webm, gif, jpg etc) from 4chan threads.
+Downloads content files (webm, gif, jpg etc) from 4chan threads.
 http links to the threads will be read per line from threadlinks.txt
 
 Download will happen multithreaded / with multiprocessing

@@ -4,4 +4,5 @@
 # But not these files...
 !.gitignore
 !README.md
-!g.py
+!4cdc.py
+!4cdc.pyproj
