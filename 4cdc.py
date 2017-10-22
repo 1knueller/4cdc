@@ -31,10 +31,10 @@ def main():
     threadlinks = [line.strip() for line in threadlinks]
     threadlinks = [line for line in threadlinks if line[:4].lower() == 'http']
 
-    if threadlinks.count() == 0:
+    if threadlinks == [] or threadlinks.count() == 0:
         print("put the links to threads into the linklist.txt file, one link per line")
 
-    print("::: Downloading " + str(len(threadlinks)) + "Threads\n")
+    print("::: Downloading " + str(len(threadlinks)) + " Threads\n")
     j = 1
     for threadlink in threadlinks:
         print("::: Downloading Thread " + str(j) + "/" + str(len(threadlinks)))
