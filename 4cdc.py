@@ -27,6 +27,7 @@ def load(url):
 def main():
     fname = "linklist.txt"
     with open(fname,'a+') as f: #opens file for reading and apending (creates the file if it doesnt exist)
+        f.seek(0,0)
         threadlinks = f.readlines()
     threadlinks = [line.strip() for line in threadlinks]
     threadlinks = [line for line in threadlinks if line[:4].lower() == 'http']
