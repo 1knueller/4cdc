@@ -54,7 +54,7 @@ def process_url(directory, link_img_tuple, index):
         kbs = str(round(((filesize * 1024) / timeelapsed)))
         print(index + " ::: " + str(round(filesize, 1)) + "MB @ " + kbs + " kilobyte/second")
     else:
-        print(index + "already exists")
+        print(index + " exists - skipping")
 
 def getThreadTitle(soup):
         titles = [element.text for element in soup.find_all("span", "subject")]
@@ -76,7 +76,7 @@ def mkdirs(thread_link, soup):
         if len(threadTitle) <= 0:
             threadTitle = (threadID + '_' + title2)[:45]
 
-        directory = os.path.join(workpath, 'downloads', board, threadTitle)
+        directory = os.path.join(workpath, 'downloads', board, threadTitle.strip())
         if not os.path.exists(directory):
             os.makedirs(directory)
 
