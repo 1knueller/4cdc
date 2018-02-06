@@ -32,7 +32,7 @@ def main():
     threadlinks = [line.strip() for line in threadlinks]
     threadlinks = [line for line in threadlinks if line[:4].lower() == 'http']
 
-    if threadlinks == [] or threadlinks.count() == 0:
+    if threadlinks == [] or len(threadlinks) == 0:
         print("put the links to threads into the linklist.txt file, one link per line")
 
     print("::: Downloading " + str(len(threadlinks)) + " Threads\n")
@@ -104,7 +104,7 @@ def download_thread(thread_link):
         #urllib.request.urlretrieve("http:" + getThumbnailLink(soup), directory + "\\thumb.jpg") # stupid me didnt know windows makes thumbnails of webm anyways :/
         while True:
             try:
-                list_of_url_filename = list(set(re.findall(regexForFilesToDownload, loadedthread)))
+                list_of_url_filename = list(set(re.findall(regexForFileLinks, loadedthread)))
                 list_of_url_filename = getFileLinkList(soup)
                 pool = multiprocessing.Pool(processes=6)
                 pool.starmap(process_url, zip(itertools.repeat(directory), list_of_url_filename, createListForStatusDisplay(list_of_url_filename)))
