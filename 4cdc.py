@@ -1,3 +1,10 @@
+###################
+# 4cdc - 4ChanDownloadContent
+# This ting loads every threads file content whose link is contained
+# in a file named linklist.txt located next to the script
+# one thread per line
+####################
+
 #!/usr/bin/python
 import urllib.request
 import urllib.error
@@ -101,7 +108,7 @@ def download_thread(thread_link):
         soup = BeautifulSoup(loadedthread,"lxml")
         directory = mkdirs(thread_link, soup)
         
-        #urllib.request.urlretrieve("http:" + getThumbnailLink(soup), directory + "\\thumb.jpg") # stupid me didnt know windows makes thumbnails of webm anyways :/
+        #urllib.request.urlretrieve("http:" + getThumbnailLink(soup), directory + "\\thumb.jpg") # stupid me didnt think about windows making thumbnails of webm anyways :/
         while True:
             try:
                 list_of_url_filename = list(set(re.findall(regexForFileLinks, loadedthread)))
