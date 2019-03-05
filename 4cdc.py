@@ -83,12 +83,16 @@ def mkdirs(thread_link, soup):
         if len(threadTitle) <= 0:
             threadTitle = (threadID + '_' + title2)[:45]
 
-        directory = os.path.join(workpath, 'downloads', board, threadTitle.strip())
+        directory = os.path.join(workpath, 'downloads', board, get_valid_filename(threadTitle.strip()))
         if not os.path.exists(directory):
             os.makedirs(directory)
 
         return directory
 
+def get_valid_filename(s):
+    s = str(s).strip().replace(' ', '_')
+    return re.sub(r'(?u)[^-\w.]', '', s)
+		
 def createListForStatusDisplay(list_of_url_filename):
         indexlist = range(1,len(list_of_url_filename) + 1)
         list2 = list(map(str, indexlist))
